@@ -15,3 +15,7 @@ ___AVL___: A simple implementation of the AVL balance tree with detailed explana
 ___Disjoint Set___: We take negative nums for accumulation.  
 ___Graph___: Most classical algorithms related to graph were implemented.
 
+## cdecl
+C declaration interpreter. Both recursive and iterative methods are implemented.  
+The iterative method is based on the idea of ___FSM___, which reveals the essence of computation.  
+ 
