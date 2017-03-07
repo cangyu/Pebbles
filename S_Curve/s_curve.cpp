@@ -144,6 +144,24 @@ public:
 		CalcVelocityVars();
 		CalcPositionVars();
 	}
+	
+	double get_acc(double _t) const
+	{
+		if(_t<=p[0])
+			return a/p[0]*_t;
+		else if(_t<=p[1])
+			return a;
+		else if(_t<=p[2])
+			return a*(1-(_t-p[1])/t[2]);
+		else if(_t<=p[3])
+			return 0;
+		else if(_t<=p[4])
+			return b*(_t-p[3])/t[4];
+		else if(_t<=p[5])
+			return b;
+		else
+			return b*(1-(_t-p[5])/t[6]);
+	}
 
 	double get_velocity(double _t) const
 	{
@@ -169,7 +187,7 @@ int main(int argc, char **argv)
 	double cur = 0;
 	while (cur < T)
 	{
-		fout << cur << '\t' << curve->get_velocity(cur) << '\t' << curve->get_position(cur) << endl;
+        	fout << cur << '\t' << curve->get_acc(cur) << '\t' << curve->get_velocity(cur) << '\t' << curve->get_position(cur) << endl;
 		cur += step;
 	}
 
